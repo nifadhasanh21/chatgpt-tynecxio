@@ -217,6 +217,7 @@ export default function Home() {
         </div>
 
         <div className="container heroWrap">
+          {/* LEFT */}
           <motion.div initial="hidden" animate="show" variants={stagger}>
             <motion.div className="badge" variants={fadeUp}>
               <span className="spark" />
@@ -246,8 +247,8 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              className="grid"
-              style={{ gridTemplateColumns: "repeat(2, minmax(0, 1fr))", marginTop: 22 }}
+              className="grid grid2 heroHighlights"
+              style={{ marginTop: 22 }}
               variants={stagger}
               initial="hidden"
               animate="show"
@@ -261,8 +262,9 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
+          {/* RIGHT */}
           <motion.div
-            className="card lift"
+            className="card lift heroCard"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.12 }}
@@ -275,9 +277,7 @@ export default function Home() {
             </MagneticButton>
 
             <div className="hr"></div>
-            <div className="small">
-              Trusted by startups, entrepreneurs, small businesses, and emerging brands worldwide.
-            </div>
+            <div className="small">Trusted by startups, entrepreneurs, small businesses, and emerging brands worldwide.</div>
             <div className="small" style={{ marginTop: 8 }}>(You can add logos later.)</div>
           </motion.div>
         </div>
@@ -299,8 +299,7 @@ export default function Home() {
         subtitle="We’re a product-focused digital studio that blends design, development, and marketing to build meaningful, conversion-focused digital experiences."
       >
         <motion.div
-          className="grid"
-          style={{ gridTemplateColumns: "repeat(3, minmax(0, 1fr))" }}
+          className="grid grid3"
           variants={stagger}
           initial="hidden"
           whileInView="show"
@@ -332,8 +331,7 @@ export default function Home() {
       {/* WHY CHOOSE US */}
       <Section id="about" title="Why Work With NovaWave Studio?" subtitle="">
         <motion.div
-          className="grid"
-          style={{ gridTemplateColumns: "repeat(2, minmax(0, 1fr))" }}
+          className="grid grid2"
           variants={stagger}
           initial="hidden"
           whileInView="show"
@@ -356,8 +354,7 @@ export default function Home() {
       {/* PROCESS */}
       <Section id="process" title="How We Work" subtitle="">
         <motion.div
-          className="grid"
-          style={{ gridTemplateColumns: "repeat(3, minmax(0, 1fr))" }}
+          className="grid grid3"
           variants={stagger}
           initial="hidden"
           whileInView="show"
@@ -382,8 +379,7 @@ export default function Home() {
       {/* PACKAGES */}
       <Section id="packages" title="📦 Package System (With Pricing)" subtitle="">
         <motion.div
-          className="grid"
-          style={{ gridTemplateColumns: "repeat(3, minmax(0, 1fr))" }}
+          className="grid grid3"
           variants={stagger}
           initial="hidden"
           whileInView="show"
@@ -400,8 +396,7 @@ export default function Home() {
       {/* PORTFOLIO */}
       <Section id="portfolio" title="Recent Work & Focus Areas" subtitle="We love working on:">
         <motion.div
-          className="grid"
-          style={{ gridTemplateColumns: "repeat(2, minmax(0, 1fr))" }}
+          className="grid grid2"
           variants={stagger}
           initial="hidden"
           whileInView="show"
@@ -431,7 +426,6 @@ export default function Home() {
       <Section id="faq" title="FAQ" subtitle="">
         <motion.div
           className="grid"
-          style={{ gridTemplateColumns: "1fr" }}
           variants={stagger}
           initial="hidden"
           whileInView="show"
@@ -451,55 +445,40 @@ export default function Home() {
         title="Ready to Build Something Great?"
         subtitle="Tell us about your idea — we’ll come back with a clear plan and proposal."
       >
-        <div
-  className="grid"
-  style={{
-    gridTemplateColumns: "1fr 1fr",
-    alignItems: "stretch",
-    gap: 22
-  }}
->
-  {/* LEFT — Visual / Info Panel */}
-  <motion.div
-    className="card lift contactLeft"
-    initial={{ opacity: 0, y: 18 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.25 }}
-  >
-    <h3 style={{ fontWeight: 950, fontSize: 26, margin: 0 }}>
-      Let’s Build Something Meaningful
-    </h3>
+        <div className="grid grid2 contactGrid" style={{ alignItems: "stretch", gap: 22 }}>
+          {/* LEFT */}
+          <motion.div
+            className="card lift contactLeft"
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+          >
+            <h3 style={{ fontWeight: 950, fontSize: 26, margin: 0 }}>Let’s Build Something Meaningful</h3>
 
-    <p className="p" style={{ marginTop: 12 }}>
-      Whether you’re launching a startup, redesigning your brand,
-      or scaling an existing product — we help you move fast with
-      clarity and confidence.
-    </p>
+            <p className="p" style={{ marginTop: 12 }}>
+              Whether you’re launching a startup, redesigning your brand, or scaling an existing product — we help you move
+              fast with clarity and confidence.
+            </p>
 
-    <div className="contactPoints">
-      <div>⚡ Fast turnaround & startup-friendly process</div>
-      <div>🎯 Design focused on conversion & growth</div>
-      <div>🌍 Remote collaboration, global clients</div>
-      <div>🤝 Clear communication & honest pricing</div>
-    </div>
+            <div className="contactPoints">
+              <div>⚡ Fast turnaround & startup-friendly process</div>
+              <div>🎯 Design focused on conversion & growth</div>
+              <div>🌍 Remote collaboration, global clients</div>
+              <div>🤝 Clear communication & honest pricing</div>
+            </div>
 
-    <div className="contactMini">
-      <div className="miniStep">1. Discovery Call</div>
-      <div className="miniStep">2. Strategy & Design</div>
-      <div className="miniStep">3. Build & Launch</div>
-    </div>
-  </motion.div>
+            <div className="contactMini">
+              <div className="miniStep">1. Discovery Call</div>
+              <div className="miniStep">2. Strategy & Design</div>
+              <div className="miniStep">3. Build & Launch</div>
+            </div>
+          </motion.div>
 
-  {/* RIGHT — Contact Form */}
-  <motion.div
-    initial={{ opacity: 0, y: 18 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.25 }}
-  >
-    <ContactForm />
-  </motion.div>
-</div>
-
+          {/* RIGHT */}
+          <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }}>
+            <ContactForm />
+          </motion.div>
+        </div>
       </Section>
 
       <Footer />

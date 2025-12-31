@@ -1,3 +1,15 @@
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+* {
+  box-sizing: border-box;
+}
+img, video, canvas, svg {
+  max-width: 100%;
+}
+
+
 :root{
   --bg:#07070c;
   --panel: rgba(255,255,255,.04);
@@ -569,4 +581,94 @@ img, video { max-width: 100%; height: auto; }
 .mobileLink:hover{
   border-color: rgba(255,255,255,.22);
   background: rgba(255,255,255,.04);
+}
+
+
+.container {
+  width: min(1120px, 100% - 32px);
+  margin-inline: auto;
+}
+
+@media (max-width: 980px) {
+  .heroWrap {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
+  .navLinks {
+    display: none; /* later we can add mobile menu */
+  }
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+  .btn.wide {
+    width: 100%;
+  }
+}
+
+
+/* Again for Grid */
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.grid2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* mobile fix */
+@media (max-width: 900px) {
+  .grid2,
+  .grid3 {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================
+   Mobile Performance Fixes
+   ========================= */
+@media (max-width: 700px) {
+  /* Stop right-side overflow */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Reduce heavy blur effects (big performance hit on phones) */
+  .blob {
+    filter: blur(40px) !important;
+    opacity: 0.55 !important;
+    transform: translateZ(0); /* helps smoothness */
+  }
+
+  /* Reduce hero FX intensity */
+  .heroFX {
+    opacity: 0.6 !important;
+  }
+
+  /* If your cards use backdrop-filter, reduce it for speed */
+  .card {
+    backdrop-filter: blur(8px) !important;
+  }
+
+  /* Avoid huge shadows on many cards */
+  .lift {
+    box-shadow: 0 12px 28px rgba(0,0,0,0.35) !important;
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }

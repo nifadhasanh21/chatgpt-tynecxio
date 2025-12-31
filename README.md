@@ -98,9 +98,8 @@ Live URL:
 ---
 ## 🌐 Live Preview
 
-<p align="center">
-  <img src="./client/public/preview.png" alt="TynecXio Website Preview" width="100%" />
-</p>
+![TynecXio Website Preview](https://raw.githubusercontent.com/nifadhasanh21/tynecxio/main/client/public/preview.png)
+
 
 
 

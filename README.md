@@ -2,45 +2,108 @@
 
 ![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black)
 ![Vite](https://img.shields.io/badge/Built%20with-Vite-646CFF)
-![React](https://img.shields.io/badge/React-61DAFB)
+![React](https://img.shields.io/badge/Framework-React-61DAFB)
+![Status](https://img.shields.io/badge/Status-Production-success)
 
-Premium agency website for **TynecXio** (Design • Development • Growth).  
-Built with **Vite + React** and deployed on **Vercel**, including a serverless contact API.
+**TynecXio** is a premium digital agency specializing in **Design, Development, and Growth**.  
+This repository contains the official website built with modern frontend tooling and deployed on Vercel.
+
+🌐 **Live Website:** https://tynecxio.com
+
+---
 
 ## ✨ Features
-- Premium landing page UI (animations, gradient blobs, micro-interactions)
-- Fully responsive layout (mobile / tablet / desktop)
-- Contact form with email delivery (Resend + Vercel Serverless Function)
-- Fast build + optimized assets (Vite)
+
+- Agency-level premium UI & visual design
+- Smooth animations & micro-interactions (Framer Motion)
+- Animated gradient hero background
+- Fully responsive (mobile, tablet, desktop)
+- Fast performance & optimized assets
+- Contact form with email delivery
+- Serverless backend (Vercel Functions)
+
+---
 
 ## 🧱 Tech Stack
-- React + Vite
-- Framer Motion (animations)
-- Vercel Serverless Functions (`/api`)
-- Resend (email)
 
-## 🚀 Getting Started (Local)
-### 1) Install
+- **Frontend:** React + Vite
+- **Animations:** Framer Motion
+- **Styling:** Modern CSS (custom system)
+- **Backend:** Vercel Serverless Functions
+- **Email Service:** Resend
+- **Hosting:** Vercel
+
+---
+
+## 📂 Project Structure
+
+tynecxio/
+├─ api/
+│ └─ contact.js # Serverless email API
+├─ client/
+│ ├─ public/
+│ │ └─ preview.png # Website preview image
+│ ├─ src/
+│ │ ├─ components/
+│ │ ├─ pages/
+│ │ ├─ App.jsx
+│ │ ├─ main.jsx
+│ │ └─ styles.css
+│ ├─ index.html
+│ ├─ vite.config.js
+│ └─ package.json
+├─ .gitignore
+├─ package.json
+└─ README.md
+
+yaml
+Copy code
+
+---
+
+## 🚀 Getting Started (Local Development)
+
+### 1️⃣ Install dependencies
 ```bash
 cd client
 npm install
-2) Run
+2️⃣ Run the development server
+bash
+Copy code
 npm run dev
+Open in browser:
+👉 http://localhost:5173
 
+📩 Contact Form & Email Setup (Resend)
+This project uses Resend with a Vercel Serverless Function.
 
-Open: http://localhost:5173
+Required Environment Variables (Vercel)
+Add these in Vercel → Project → Settings → Environment Variables:
 
-📩 Email / Contact Form Setup (Resend)
-
-Add these environment variables in Vercel (Project → Settings → Environment Variables):
-
-RESEND_API_KEY = your key
-
-CONTACT_TO_EMAIL = your receiving email
-
-
-CONTACT_FROM_EMAIL = your verified sender email (Resend)
+env
+Copy code
+RESEND_API_KEY=your_resend_api_key
+CONTACT_TO_EMAIL=career@tynecxio.com
+CONTACT_FROM_EMAIL=TynecXio <no-reply@tynecxio.com>
+CONTACT_FROM_EMAIL must be a verified sender in Resend.
 
 🌍 Deployment
+The website is deployed using Vercel with automatic CI/CD from GitHub.
 
-This project is deployed on Vercel.
+Push to main branch
+
+Vercel builds & deploys automatically
+
+Serverless API available at /api/contact
+
+Live URL:
+👉 https://tynecxio.com
+
+## 🌐 Live Preview
+
+![TynecXio Website Preview](client/public/preview.png)
+
+
+📬 Contact
+For business inquiries or collaboration:
+📧 career@tynecxio.com

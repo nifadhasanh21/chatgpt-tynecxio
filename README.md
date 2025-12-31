@@ -5,6 +5,12 @@
 ![React](https://img.shields.io/badge/Framework-React-61DAFB)
 ![Status](https://img.shields.io/badge/Status-Production-success)
 
+## 🌐 Live Preview
+
+![TynecXio Website Preview](https://raw.githubusercontent.com/nifadhasanh21/tynecxio/main/client/public/preview.png)
+
+
+
 **TynecXio** is a premium digital agency specializing in **Design, Development, and Growth**.  
 This repository contains the official website built with modern frontend tooling and deployed on Vercel.
 
@@ -96,10 +102,6 @@ Serverless API available at /api/contact
 Live URL:
 👉 https://tynecxio.com
 ---
-## 🌐 Live Preview
-
-![TynecXio Website Preview](https://raw.githubusercontent.com/nifadhasanh21/tynecxio/main/client/public/preview.png)
-
 
 
 

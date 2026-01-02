@@ -755,3 +755,68 @@ select.input option {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Navbar logo */
+.logoImg {
+  height: 32px;          /* adjust as you like */
+  display: block;
+}
+
+/* On very small screens, slightly reduce */
+@media (max-width: 480px) {
+  .logoImg {
+    height: 26px;
+  }
+}
+
+/* Logo row in hero card */
+.logoRow {
+  display: flex;
+  gap: 18px;
+  margin-top: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  opacity: 0.9;
+}
+
+.logoRow img {
+  height: 22px;
+  filter: grayscale(100%);
+  opacity: 0.85;
+  transition: filter 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+
+.logoRow img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+/* Logo Size Increase */
+.logoImg {
+  height: 100px;          
+  width: auto;
+  object-fit: contain;
+}
+.logoRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.logoRow img {
+  height: 64px;        
+  width: 200px;
+  height: 130px;
+  opacity: 0.9;
+}
+@media (max-width: 768px) {
+  .logoImg {
+    height: 100px;
+  }
+
+  .logoRow img {
+    height: 130px;
+  }
+}

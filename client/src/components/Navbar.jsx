@@ -17,7 +17,6 @@ export default function Navbar() {
 
   const go = (href) => {
     setOpen(false);
-    // smooth scroll
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
@@ -25,15 +24,33 @@ export default function Navbar() {
   return (
     <div className="nav">
       <div className="container navInner">
-        <a className="logo" href="#home" onClick={(e) => { e.preventDefault(); go("#home"); }}>
-          <span className="logoDot" />
-          <span className="brandName">TynecXio</span>
+        {/* LOGO */}
+        <a
+          className="logo"
+          href="#home"
+          onClick={(e) => {
+            e.preventDefault();
+            go("#home");
+          }}
+        >
+          <img
+            src="/tynecxio-logo.png"
+            alt="TynecXio"
+            className="logoImg"
+          />
         </a>
 
         {/* Desktop links */}
         <nav className="navLinks" aria-label="Primary navigation">
           {links.map(([label, href]) => (
-            <a key={href} href={href} onClick={(e) => { e.preventDefault(); go(href); }}>
+            <a
+              key={href}
+              href={href}
+              onClick={(e) => {
+                e.preventDefault();
+                go(href);
+              }}
+            >
               {label}
             </a>
           ))}
@@ -41,7 +58,14 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="navCta">
-          <MagneticButton className="primary" href="#contact" onClick={(e) => { e.preventDefault(); go("#contact"); }}>
+          <MagneticButton
+            className="primary"
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              go("#contact");
+            }}
+          >
             Get a Free Strategy Call
           </MagneticButton>
         </div>
@@ -71,7 +95,11 @@ export default function Navbar() {
           >
             <div className="container mobileMenuInner">
               {links.map(([label, href]) => (
-                <button key={href} className="mobileLink" onClick={() => go(href)}>
+                <button
+                  key={href}
+                  className="mobileLink"
+                  onClick={() => go(href)}
+                >
                   {label}
                 </button>
               ))}

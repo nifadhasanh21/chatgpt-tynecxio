@@ -277,8 +277,13 @@ export default function Home() {
             </MagneticButton>
 
             <div className="hr"></div>
-            <div className="small">Trusted by startups, entrepreneurs, small businesses, and emerging brands worldwide.</div>
-            <div className="small" style={{ marginTop: 8 }}>(You can add logos later.)</div>
+            <div className="small">
+              Trusted by startups, entrepreneurs, small businesses, and emerging brands worldwide.
+            </div>
+
+            <div className="logoRow">
+              <img src="/tynecxio-logo.png" alt="Client 1" />
+            </div>
           </motion.div>
         </div>
       </header>

@@ -672,3 +672,86 @@ img, video { max-width: 100%; height: auto; }
     scroll-behavior: auto !important;
   }
 }
+
+
+/* Contact form styling (keeps your premium look) */
+.contactForm {
+  display: grid;
+  gap: 14px;
+}
+
+.formHeader .h3 {
+  font-size: 28px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.label {
+  display: block;
+  font-size: 13px;
+  opacity: 0.85;
+  margin: 0 0 8px;
+}
+
+.input {
+  width: 100%;
+  border-radius: 999px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.92);
+  outline: none;
+}
+
+.input::placeholder {
+  color: rgba(255,255,255,0.45);
+}
+
+.textarea {
+  min-height: 140px;
+  border-radius: 18px;
+  resize: vertical;
+}
+
+/* Fix select dropdown white issue */
+select.input {
+  appearance: none;
+}
+
+/* dropdown options (browser dependent but helps) */
+select.input option {
+  background: #0b0f16;
+  color: #ffffff;
+}
+
+/* success / error boxes */
+.notice {
+  border-radius: 14px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.notice.success {
+  background: rgba(46, 204, 113, 0.10);
+}
+
+.notice.error {
+  background: rgba(231, 76, 60, 0.12);
+}
+
+/* Mobile fix */
+@media (max-width: 720px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -105,7 +105,7 @@ export default function Home() {
         "Contact form integration"
       ],
       timeline: "2–3 weeks",
-      price: "$350 – $600 USD (depends on complexity)",
+      price: "$80 – $120 USD (depends on complexity)",
       buttonText: "Get a Custom Quote",
       badge: "Most Popular"
     },
@@ -120,7 +120,7 @@ export default function Home() {
         "Developer-ready handoff"
       ],
       timeline: "3–4 weeks",
-      price: "$400 – $900 USD",
+      price: "$70 – $100 USD",
       buttonText: "Start UI/UX Project",
       badge: "UI/UX"
     },
@@ -135,7 +135,7 @@ export default function Home() {
         "SEO & analytics ready"
       ],
       timeline: "2–3 weeks",
-      price: "$450 – $900 USD",
+      price: "$200 – $350 USD",
       buttonText: "Launch My Store",
       badge: "E-Commerce"
     },
@@ -149,7 +149,7 @@ export default function Home() {
         "Prototyping & animations"
       ],
       timeline: "3–5 weeks",
-      price: "$500 – $1,000 USD",
+      price: "$250 – $450 USD",
       buttonText: "Design My App UI",
       badge: "Mobile"
     },
@@ -163,7 +163,7 @@ export default function Home() {
         "Brand usage guideline (PDF)"
       ],
       timeline: "1–2 weeks",
-      price: "$200 – $450 USD",
+      price: "$80 – $150 USD",
       buttonText: "Build My Brand",
       badge: "Brand"
     },
@@ -177,7 +177,7 @@ export default function Home() {
         "Consultation & guidance"
       ],
       timeline: "Monthly",
-      price: "$300 – $600 USD per month",
+      price: "$90 – $150 USD per month",
       buttonText: "Join Growth Partner Plan",
       badge: "Growth"
     }

@@ -1,84 +1,130 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
-export default function ContactForm() {
-  const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState({ type: "", msg: "" });
+const SERVICE_ID = "service_vtswxoj";
+const TEMPLATE_ID = "template_l3f9lo8";
+const PUBLIC_KEY = "8jFqNlKh0Ha-ywcCE";
 
-  async function handleSubmit(e) {
+export default function ContactForm() {
+  const formRef = useRef(null);
+
+  const [loading, setLoading] = useState(false);
+  const [ok, setOk] = useState(false);
+  const [error, setError] = useState("");
+
+  async function onSubmit(e) {
     e.preventDefault();
+
     setLoading(true);
-    setStatus({ type: "", msg: "" });
+    setOk(false);
+    setError("");
 
     try {
-      await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        e.currentTarget,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      );
+      // IMPORTANT: await + proper success handling
+      const res = await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, {
+        publicKey: PUBLIC_KEY
+      });
 
-      setStatus({ type: "success", msg: "Message sent successfully!" });
-      e.currentTarget.reset();
+      // EmailJS usually returns status 200 when success
+      if (res?.status === 200) {
+        setOk(true);
+        setError("");
+        formRef.current?.reset();
+
+        // hide success after 4s (optional)
+        setTimeout(() => setOk(false), 4000);
+      } else {
+        setOk(false);
+        setError("Email failed. Please try again.");
+      }
     } catch (err) {
-      console.log("EmailJS Error:", err);
-      setStatus({ type: "error", msg: "Email failed. Please try again." });
+      setOk(false);
+      // err.text is common in EmailJS
+      setError(err?.text || err?.message || "Email failed. Please try again.");
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className="card lift">
-      <div style={{ fontWeight: 950, fontSize: 22, marginBottom: 6 }}>Send a message</div>
-      <div className="small" style={{ marginBottom: 14 }}>We reply within 24–48 hours.</div>
-
-      <div className="grid" style={{ gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-        <input name="name" placeholder="Name *" required />
-        <input name="email" type="email" placeholder="Email *" required />
+    <form ref={formRef} className="contactForm" onSubmit={onSubmit}>
+      <div className="formHeader">
+        <div className="h3">Send a message</div>
+        <div className="small">We reply within 24–48 hours.</div>
       </div>
 
-      <div className="grid" style={{ gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 12 }}>
-        <select name="service" required defaultValue="General / Not sure">
-          <option value="General / Not sure">General / Not sure</option>
-          <option value="UI/UX Design">UI/UX Design</option>
-          <option value="Website / Web App Development">Website / Web App Development</option>
-          <option value="E-Commerce Store">E-Commerce Store</option>
-          <option value="Mobile App UI">Mobile App UI</option>
-          <option value="Brand Identity & Graphics">Brand Identity & Graphics</option>
-          <option value="Digital Marketing & Growth">Digital Marketing & Growth</option>
-        </select>
+      <div className="formGrid">
+        <div className="field">
+          <label className="label">Name *</label>
+          <input
+            className="input"
+            name="name"
+            type="text"
+            placeholder="Your name"
+            required
+          />
+        </div>
 
-        <select name="budget" defaultValue="$350 - $600">
-          <option value="$350 - $600">$350 - $600</option>
-          <option value="$400 - $900">$400 - $900</option>
-          <option value="$900+">$900+</option>
-        </select>
+        <div className="field">
+          <label className="label">Email *</label>
+          <input
+            className="input"
+            name="email"
+            type="email"
+            placeholder="you@email.com"
+            required
+          />
+        </div>
+
+        <div className="field">
+          <label className="label">Service</label>
+          <select className="input" name="service" defaultValue="General / Not sure">
+            <option>General / Not sure</option>
+            <option>UI & UX Design</option>
+            <option>Website / Web App Development</option>
+            <option>E-Commerce Store</option>
+            <option>Mobile App UI</option>
+            <option>Brand Identity & Graphics</option>
+            <option>Digital Marketing & Growth</option>
+          </select>
+        </div>
+
+        <div className="field">
+          <label className="label">Budget (optional)</label>
+          <select className="input" name="budget" defaultValue="$350 - $600">
+            <option>$70 - $100</option>
+            <option>$100 - $200</option>
+            <option>$200 - $300</option>
+            <option>$300 - $400</option>
+            <option>$400 - $500</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+
+        <div className="field full">
+          <label className="label">Project details *</label>
+          <textarea
+            className="input textarea"
+            name="message"
+            placeholder="Tell us about your project..."
+            required
+          />
+        </div>
       </div>
 
-      <textarea
-        name="message"
-        placeholder="Project details *"
-        required
-        style={{ marginTop: 12, minHeight: 140 }}
-      />
-
-      <button className="btn primary wide" type="submit" disabled={loading} style={{ marginTop: 12 }}>
+      <button className={`btn primary wide ${loading ? "isLoading" : ""}`} type="submit" disabled={loading}>
         {loading ? "Sending..." : "Send Message"}
       </button>
 
-      {status.msg && (
-        <div
-          className="card"
-          style={{
-            marginTop: 12,
-            padding: 12,
-            borderRadius: 14,
-            background: status.type === "error" ? "rgba(255,80,80,0.12)" : "rgba(80,255,160,0.12)",
-            border: status.type === "error" ? "1px solid rgba(255,80,80,0.25)" : "1px solid rgba(80,255,160,0.25)"
-          }}
-        >
-          <b>{status.type === "error" ? "Error:" : "Success:"}</b> {status.msg}
+      {ok && (
+        <div className="notice success">
+          ✅ Message sent successfully.
+        </div>
+      )}
+
+      {error && (
+        <div className="notice error">
+          <b>Error:</b> {error}
         </div>
       )}
     </form>

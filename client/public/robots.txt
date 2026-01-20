@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.tynecxio.com/sitemap.xml
+Sitemap: https://tynecxio.com/sitemap.xml

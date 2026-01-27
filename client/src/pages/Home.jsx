@@ -1,3 +1,4 @@
+
 import ScrollProgress from "../components/ScrollProgress.jsx";
 import MagneticButton from "../components/MagneticButton.jsx";
 import { motion } from "framer-motion";
@@ -104,8 +105,6 @@ export default function Home() {
         "Domain, hosting & analytics setup",
         "Contact form integration"
       ],
-      timeline: "2–3 weeks",
-      price: "$80 – $120 USD (depends on complexity)",
       buttonText: "Get a Custom Quote",
       badge: "Most Popular"
     },
@@ -119,8 +118,6 @@ export default function Home() {
         "Prototype for testing",
         "Developer-ready handoff"
       ],
-      timeline: "3–4 weeks",
-      price: "$70 – $100 USD",
       buttonText: "Start UI/UX Project",
       badge: "UI/UX"
     },
@@ -134,8 +131,6 @@ export default function Home() {
         "Basic inventory setup",
         "SEO & analytics ready"
       ],
-      timeline: "2–3 weeks",
-      price: "$200 – $350 USD",
       buttonText: "Launch My Store",
       badge: "E-Commerce"
     },
@@ -148,8 +143,6 @@ export default function Home() {
         "Icon & typography system",
         "Prototyping & animations"
       ],
-      timeline: "3–5 weeks",
-      price: "$250 – $450 USD",
       buttonText: "Design My App UI",
       badge: "Mobile"
     },
@@ -162,8 +155,6 @@ export default function Home() {
         "Social media kit",
         "Brand usage guideline (PDF)"
       ],
-      timeline: "1–2 weeks",
-      price: "$80 – $150 USD",
       buttonText: "Build My Brand",
       badge: "Brand"
     },
@@ -176,8 +167,6 @@ export default function Home() {
         "Landing page / funnel support",
         "Consultation & guidance"
       ],
-      timeline: "Monthly",
-      price: "$90 – $150 USD per month",
       buttonText: "Join Growth Partner Plan",
       badge: "Growth"
     }

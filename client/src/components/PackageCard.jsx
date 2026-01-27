@@ -13,10 +13,6 @@ export default function PackageCard({ name, tagline, includes, timeline, price, 
         {includes.map((x, i) => <li key={i}>{x}</li>)}
       </ul>
 
-      <div className="hr"></div>
-      <div className="small"><b>Timeline:</b> {timeline}</div>
-      <div className="small" style={{ marginTop: 6 }}><b>Price:</b> {price}</div>
-
       <a className="btn primary" href="#contact" style={{ marginTop: 14, width: "100%" }}>
         {buttonText}
       </a>
